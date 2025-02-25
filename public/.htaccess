@@ -1,0 +1,14 @@
+# Включаем модуль rewrite
+RewriteEngine On
+
+# Если запрашиваемый файл или директория не существуют
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Перенаправляем все запросы на index.php
+RewriteRule ^ index.php [QSA,L]
+
+# Разрешаем CORS
+Header set Access-Control-Allow-Origin "*"
+Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+Header set Access-Control-Allow-Headers "Origin, X-Requested-With, Content-Type, Accept, Authorization" 
